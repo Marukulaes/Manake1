@@ -1632,7 +1632,7 @@ end)
 spawn(function()
 	while task.wait() do
 		pcall(function()
-			if _G.AutoFarm and game:GetService("Players").LocalPlayer.Data.Level.Value <= 150 then
+			if _G.BuyAllSword and game:GetService("Players").LocalPlayer.Data.Level.Value <= 2499 then
 				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Dual Katana")
 				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Cutlass")
 				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Refined Slingshot")
@@ -1741,6 +1741,10 @@ local Main = serv:Channel("Manake X Hub")
 
 Main:Toggle("Stats",true, function(bool)
 	_G.AutoFarm = bool
+end)
+
+Main:Toggle("Buy All Sword",false, function(bool)
+	_G.BuyAllSword = bool
 end)
 
 Main:Button("Code", function()
